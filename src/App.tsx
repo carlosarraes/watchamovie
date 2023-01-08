@@ -1,4 +1,4 @@
-import Home from './pages/Home'
+import { Link, Outlet } from 'react-router-dom'
 
 function App() {
   return (
@@ -6,19 +6,19 @@ function App() {
       <header className="mx-2">
         <section className="flex justify-between items-center">
           <h1>Go Watch a Movie!</h1>
-          <button>Login</button>
+          <Link to="/login">Login</Link>
         </section>
       </header>
       <main className="flex mx-2">
         <nav className="flex flex-col w-2/12">
-          <a href="#">Home</a>
-          <a href="#">Movies</a>
-          <a href="#">Genre</a>
-          <a href="#">Add Movie</a>
-          <a href="#">Manage Catalogue</a>
-          <a href="#">GraphQl</a>
+          <Link to="/">Home</Link>
+          <Link to="/movies">Movies</Link>
+          <Link to="/genres">Genre</Link>
+          <Link to="/admin/movie/0">Add Movie</Link>
+          <Link to="/admin">Catalogue</Link>
+          <Link to="/graphql">GraphQl</Link>
         </nav>
-        <Home />
+        <Outlet />
       </main>
     </>
   )

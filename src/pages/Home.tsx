@@ -3,9 +3,9 @@ import Ticket from '../images/movie_tickets.jpg'
 
 const Home = () => {
   return (
-    <section className="w-10/12 text-center">
+    <section className="flex flex-col justify-center items-center w-full">
       <h2>Find a movie to watch tonight!</h2>
-      <hr />
+      <hr className="border-1 w-full " />
       <Link to="/movies">
         <img src={Ticket} alt="Movie Ticket" className="w-24" />
       </Link>

@@ -23,28 +23,18 @@ const Movies = () => {
   ])
 
   useEffect(() => {
-    let moviesList: Movie[] = [
-      {
-        id: 1,
-        title: 'The Shawshank Redemption',
-        releaseDate: '1994-09-23',
-        runtime: 142,
-        mpaaRating: 'R',
-        description:
-          'Two imprisoned guys bond over a number of years, finding hope and eventual redemption through acts of common decency.',
-      },
-      {
-        id: 2,
-        title: 'The Godfather',
-        releaseDate: '1972-03-24',
-        runtime: 175,
-        mpaaRating: 'R',
-        description:
-          'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
-      },
-    ]
+    const headers = new Headers()
+    headers.append('Content-Type', 'application/json')
 
-    setMovies(moviesList)
+    const requestOptions = {
+      method: 'GET',
+      headers,
+    }
+
+    fetch(`http://localhost:8080/movies`, requestOptions)
+      .then((response) => response.json())
+      .then((data) => setMovies(data))
+      .catch((error) => console.log(error))
   }, [])
 
   return (
